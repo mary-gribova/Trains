@@ -57,19 +57,45 @@ public class StringTool {
 		return false;
 	}
 
-//	1.4 Write a method to decide if two strings are anagrams or not.
+	//	1.4 Write a method to decide if two strings are anagrams or not.
+	public static boolean isAnagrams(String str1, String str2) {
+		if (str1.length() != str2.length()) {
+			return false;
+		}
 
-//	1.5	 Write a method to replace all spaces in a string with ‘%20’.
+		int len = str1.length();
+		for (int i = 0, j = len - 1; i < len && j > 0; i++, j--) {
+			if (str1.charAt(i) != str2.charAt(j)) {
+				return false;
+			}
+		}
 
-//	1.6	 Given an image represented by an NxN matrix, where each pixel in the image is 4
-//	bytes, write a method to rotate the image by 90 degrees. Can you do this in place?
+		return true;
+	}
 
-//	1.7	 Write an algorithm such that if an element in an MxN matrix is 0, its entire row and
-//	column is set to 0.
+	//1.5	 Write a method to replace all spaces in a string with ‘%20’.
+	public static String replaceSpaces(String str) {
+		StringBuilder res = new StringBuilder();
 
-//	1.8	 Assume you have a method isSubstring which checks if one word is a substring of
-//	another. Given two strings, s1 and s2, write code to check if s2 is a rotation of s1 using
-//	only one call to isSubstring (i.e., “waterbottle” is a rotation of “erbottlewat”).
+		for (char ch : str.toCharArray()) {
+			if (ch == ' ') {
+				res.append("%20");
+			} else {
+				res.append(ch);
+			}
+		}
 
+		return res.toString();
+	}
+
+	//
+	//	1.8	 Assume you have a method isSubstring which checks if one word is a substring of
+	//	another. Given two strings, s1 and s2, write code to check if s2 is a rotation of s1 using
+	//	only one call to isSubstring (i.e., “waterbottle” is a rotation of “erbottlewat”).
+	public static boolean isRotation(String s1, String s2) {
+
+
+		return true;
+	}
 }
 
