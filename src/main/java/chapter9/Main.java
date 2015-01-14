@@ -1,4 +1,5 @@
 package chapter9;
+//DONE
 //9.1	 You are given two sorted arrays, A and B, and A has a large enough buffer at the end
 //to hold B. Write a method to merge B into A in sorted order.
 
@@ -40,6 +41,56 @@ package chapter9;
 //(60,95) (65,100) (68,110) (70,150) (75,190)
 public class Main {
 	public static void main(String[] args) {
+		Main m = new Main();
+		int[] a = new int[]{4, 9, 10};
+		int[] b = new int[]{1, 2, 3, 6, 7, 8};
+		int[] res = m.mergeBtoA(a, b);
+		m.printArr(res);
+	}
 
+
+	public void printArr(int[] a) {
+		for (int el : a) {
+			System.out.print(el + " ");
+		}
+
+		System.out.println();
+	}
+
+	public int[] mergeBtoA(int[] a, int[] b) {
+		int lenA = a.length;
+		int lenB = b.length;
+		int[] aWithBuff = new int[lenA + lenB];
+		for (int i = 0; i < lenA; i++) {
+			aWithBuff[i] = a[i];
+		}
+
+		int i = lenA - 1, j = lenB - 1, k = lenA + lenB - 1;
+
+		while (i >= 0 && j >= 0) {
+			if (aWithBuff[i] > b[j]) {
+				aWithBuff[k] = aWithBuff[i];
+				i--;
+				k--;
+			} else {
+				aWithBuff[k] = b[j];
+				j--;
+				k--;
+			}
+		}
+
+		//copy b to end of a
+		if (i < 0) {
+			for (; j >= 0; j--) {
+				aWithBuff[k--] = b[j];
+			}
+		//copy a to end of a
+		} else if (j < 0) {
+			for (; i >= 0; i--) {
+				aWithBuff[k--] = aWithBuff[i];
+			}
+		}
+
+		return aWithBuff;
 	}
 }

@@ -146,6 +146,22 @@ public class SortUtil {
 		return res;
 	}
 
+	public boolean binarySearch(int val, int[] array, int first, int last) {
+		if (first > last || val > array[last] || val < array[first])
+			return false;
+
+		int mid = first + (last - first) / 2;
+		if (val > array[mid]) {
+			return binarySearch(val, array, mid + 1, last);
+		} else if (val < array[mid]) {
+			return binarySearch(val, array, first, mid - 1);
+		} else if (val == array[mid]) {
+			return true;
+		}
+
+		return false;
+	}
+
 	public void printArray(int[] array) {
 		for (int el : array) {
 			System.out.print(el + " ");
