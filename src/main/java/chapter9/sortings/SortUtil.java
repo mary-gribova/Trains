@@ -1,6 +1,11 @@
 package chapter9.sortings;
 
 public class SortUtil {
+	//Heap sort 
+	public int[] heapSort(int[] array) {
+		return array;
+	}
+
 	//bubble sort. Complexity - O(n^2)
 	public int[] bubbleSort(int[] array) {
 		int n = array.length;
