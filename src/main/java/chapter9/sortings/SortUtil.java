@@ -1,9 +1,19 @@
 package chapter9.sortings;
 
+import dataStructures.heap.Heap;
+import dataStructures.heap.HeapFullException;
+
 public class SortUtil {
 	//Heap sort
-	public int[] heapSort(int[] array) {
-		return array;
+	public int[] heapSort(int[] array) throws HeapFullException {
+		Heap heap = new Heap();
+		heap.createHeapFromArraySimple(array);
+		int[] result = new int[array.length];
+		for (int i = 0; i < array.length; i++) {
+			result[i] = heap.getAndRemoveMax();
+		}
+
+		return result;
 	}
 
 	//bubble sort. Complexity - O(n^2)
