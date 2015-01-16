@@ -1,7 +1,7 @@
 package chapter9.sortings;
 
 public class SortUtil {
-	//Heap sort 
+	//Heap sort
 	public int[] heapSort(int[] array) {
 		return array;
 	}
