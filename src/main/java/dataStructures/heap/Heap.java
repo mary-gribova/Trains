@@ -2,6 +2,8 @@ package dataStructures.heap;
 
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
+import java.util.TreeMap;
+
 public class Heap {
 	private int heapSize;
 	private int capacity;
@@ -140,4 +142,22 @@ public class Heap {
 			this.add(el);
 		}
 	}
+
+	/**
+	 * Create heap from array - more fast than createHeapFromArraySimple
+	 *
+	 * @param array
+	 * @throws HeapFullException
+	 */
+	public void createHeapFromArrayNormal(int[] array) throws HeapFullException {
+		heapSize = array.length;
+		for (int i = 0; i < heapSize; i++) {
+			heap[i] = array[i];
+		}
+
+		for (int i = heapSize / 2; i >= 0; i--) {
+			heapify(i);
+		}
+	}
+
 }

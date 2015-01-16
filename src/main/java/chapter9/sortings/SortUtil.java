@@ -7,7 +7,7 @@ public class SortUtil {
 	//Heap sort
 	public int[] heapSort(int[] array) throws HeapFullException {
 		Heap heap = new Heap();
-		heap.createHeapFromArraySimple(array);
+		heap.createHeapFromArrayNormal(array);
 		int[] result = new int[array.length];
 		for (int i = 0; i < array.length; i++) {
 			result[i] = heap.getAndRemoveMax();

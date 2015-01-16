@@ -29,5 +29,9 @@ public class HeapTest {
 		Heap heap1 = new Heap();
 		heap1.createHeapFromArraySimple(new int[]{3, 6, 8, 11, 125, 7, 13, 25});
 		heap1.printHeap();
+
+		Heap heap2 = new Heap();
+		heap2.createHeapFromArrayNormal(new int[]{3, 6, 8, 11, 125, 7, 13, 25});
+		heap2.printHeap();
 	}
 }
